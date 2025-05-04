@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: telegram-alert-engine
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python beast_alert_engine_secure.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
